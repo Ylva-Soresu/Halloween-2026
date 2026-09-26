@@ -1,0 +1,742 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Cormorant+Garamond:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&family=Rubik+Wet+Paint&family=Cormorant+Garamond:wght@400;500;600&display=swap");
+:root {
+  --bg: #080707;
+  --text: #e8e1d7;
+  --muted: #a69d92;
+  --red: #b72b1d;
+  --border: rgba(220, 210, 195, 0.28);
+  --display: "Eater", Georgia, serif;
+  --body: "Cormorant Garamond", Georgia, serif;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+  font-family: var(--body);
+}
+button {
+  font: inherit;
+}
+.story {
+  width: 100%;
+}
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 620px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 15vh 9vw 11vh;
+  overflow: hidden;
+  isolation: isolate;
+  scroll-snap-align: start;
+}
+.slide:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(
+      ellipse at 70% 35%,
+      rgba(150, 35, 17, 0.6),
+      transparent 27%
+    ),
+    linear-gradient(125deg, #080807 15%, #1a1110 50%, #080504 100%);
+}
+.welcome:before {
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.80)),
+    url("../images/welcome-house.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.test:before {
+  background:
+    radial-gradient(
+      ellipse at 55% 35%,
+      rgba(155, 33, 18, 0.55),
+      transparent 27%
+    ),
+    linear-gradient(145deg, #090807, #21100d 55%, #050404);
+}
+.invitation-slide:before {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.12),
+      rgba(0, 0, 0, 0.35)
+    ),
+    url("../images/invitation.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slide:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    transparent 30%,
+    rgba(0, 0, 0, 0.75)
+  );
+}
+.invitation-paper-content {
+  position: absolute;
+  z-index: 6;
+  color: #450000;
+  top: 62%;
+  left: 51.5%;
+  transform: translate(-50%, -50%);
+  width: 68%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.invitation-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.invitation-item h2 {
+  margin: 0;
+  padding: 0;
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  line-height: 0.95;
+}
+.invitation-item h2:first-child {
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+}
+
+.invitation-item h2:last-child {
+  font-size: clamp(1.9rem, 5.8vw, 3.1rem);
+  letter-spacing: -0.04em;
+}
+.costume-notice {
+  align-self: center;
+  width: fit-content;
+  margin-top: 0.8rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #300000;
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: #300000;
+  text-align: center;
+  transform: rotate(-6deg);
+  font-weight: bold;
+}
+.carneval-warning {
+  align-self: center;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: clamp(1.9rem, 4vw, 2.2rem);
+  letter-spacing: 0.06em;
+  line-height: 0.9;
+  color: #300000;
+  text-align: center;
+  transform: rotate(-6deg);
+  font-weight: bold;
+}
+.content {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s,
+    transform 0.9s;
+}
+.slide.is-visible .content {
+  opacity: 1;
+  transform: none;
+}
+.weiter {
+  margin-top: 2rem;
+position: relative;}
+.eyebrow,
+.date {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: 1.4rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.date {
+  margin-top: 0.7rem;
+}
+h1
+.horror-title {
+    font-family: var(--body);
+    color: #540000;
+    text-shadow:
+        0 0 8px rgba(80, 0, 0, 0.295),
+        0 0 20px rgba(80, 0, 0, 0.295);
+    position: relative;
+    top: -2.7rem;
+}
+h2 {
+  margin: 2rem 0 1.5rem;
+  font-family: var(--display);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-shadow: 0 3px 25px #000;
+}
+h1 {
+  font-size: clamp(2.4rem, 11vw, 5rem);
+}
+h2 {
+  font-size: clamp(2rem, 9vw, 3.8rem);
+}
+.copy {
+  max-width: 340px;
+  margin: auto;
+  color: #bdb5ac;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.action {
+  display: inline-flex;
+  gap: 1.1rem;
+  align-items: center;
+  margin-top: 2.4rem;
+  padding: 0.8rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-family: var(--body);
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+}
+.action b {
+  color: var(--red);
+  font-size: 1.1rem;
+}
+.dots {
+  position: fixed;
+  z-index: 10;
+  right: 1.2rem;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transform: translateY(-50%);
+}
+.dot {
+  width: 5px;
+  height: 5px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+}
+.dot.active {
+  background: var(--red);
+  transform: scale(1.8);
+}
+.counter {
+  position: fixed;
+  z-index: 10;
+  left: 1.2rem;
+  bottom: 1.4rem;
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  color: #aaa;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+}
+.counter i {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: rgba(230, 220, 210, 0.25);
+}
+.grain {
+  position: absolute;
+  inset: -50%;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.18s steps(2) infinite;
+}
+@keyframes grain {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(2%, -1%);
+  }
+  50% {
+    transform: translate(-1%, 2%);
+  }
+  75% {
+    transform: translate(1%, 1%);
+  }
+  100% {
+    transform: translate(-2%, -2%);
+  }
+}
+@media (max-width: 699px) {
+  .story {
+    scroll-snap-type: y mandatory;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (min-width: 768px) {
+    .welcome:before {
+        background-position: center;
+        background-color: #080707;
+    }
+}
+
+/* =========================================================
+   VOTING SLIDE
+   ========================================================= */
+
+.slide-3 {
+  align-items: center;
+  padding: 10vh 9vw;
+}
+
+.slide-3:before {
+background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.20),
+      rgba(0, 0, 0, 0.30) 55%,
+      rgba(0, 0, 0, 0.80) 100%
+    ),
+    url("../images/mirror.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---------------------------------------------------------
+   CONTENT
+   --------------------------------------------------------- */
+
+.vote-content {
+  position: relative;
+  z-index: 3;
+  margin-top: 20rem;
+  width: 100%;
+  max-width: 520px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   NAME
+   --------------------------------------------------------- */
+
+.name-field {
+  width: 100%;
+  max-width: 440px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 2rem;
+}
+
+.name-field label {
+  margin-bottom: 0.6rem;
+
+  font-family: var(--body);
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+
+  color: var(--muted);
+}
+
+.name-field input {
+  width: 100%;
+
+  padding: 0.9rem 0.8rem;
+
+  border: 0;
+  border-bottom: 1px solid var(--border);
+
+  outline: none;
+
+  background: transparent;
+
+  color: var(--text);
+
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 1.5rem;
+
+  text-align: center;
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.name-field input::placeholder {
+  color: rgba(232, 225, 215, 0.35);
+}
+
+.name-field input:focus {
+  border-color: #300000;
+
+  box-shadow:
+    0 8px 20px -12px #300000;
+}
+
+/* ---------------------------------------------------------
+   BUTTONS
+   --------------------------------------------------------- */
+
+.vote-options {
+  width: 100%;
+  max-width: 440px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vote-button {
+  position: relative;
+
+  width: 100%;
+
+  padding: 1.15rem 1rem;
+
+  border: 1px solid rgba(220, 210, 195, 0.25);
+
+  background: rgba(0, 0, 0, 0.18);
+
+  color: var(--text);
+
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+
+  overflow: hidden;
+}
+
+.vote-button:not(:disabled):hover {
+  border-color: #300000;
+
+  background: rgba(84, 0, 0, 0.12);
+
+  box-shadow:
+    0 0 20px rgba(84, 0, 0, 0.18);
+
+  transform: translateY(-1px);
+}
+
+.vote-button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+/* ---------------------------------------------------------
+   DISABLED
+   --------------------------------------------------------- */
+
+.vote-button:disabled {
+  cursor: default;
+}
+
+.vote-button:disabled:not(.selected) {
+  opacity: 0.25;
+}
+
+/* ---------------------------------------------------------
+   SELECTED
+   --------------------------------------------------------- */
+
+.vote-button.selected {
+  border-color: #6d0909;
+
+  color: #d8c6ba;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(84, 0, 0, 0.05),
+      rgba(84, 0, 0, 0.32),
+      rgba(84, 0, 0, 0.05)
+    );
+
+  box-shadow:
+    0 0 12px rgba(84, 0, 0, 0.45),
+    0 0 35px rgba(84, 0, 0, 0.18);
+
+  animation: voteBloodPulse 1.4s ease-in-out;
+}
+
+/* ---------------------------------------------------------
+   BLOOD PULSE
+   --------------------------------------------------------- */
+
+@keyframes voteBloodPulse {
+  0% {
+    box-shadow:
+      0 0 0 rgba(84, 0, 0, 0);
+  }
+
+  35% {
+    box-shadow:
+      0 0 25px rgba(84, 0, 0, 0.75),
+      0 0 55px rgba(84, 0, 0, 0.3);
+  }
+
+  100% {
+    box-shadow:
+      0 0 12px rgba(84, 0, 0, 0.45),
+      0 0 35px rgba(84, 0, 0, 0.18);
+  }
+}
+
+/* ---------------------------------------------------------
+   STATUS
+   --------------------------------------------------------- */
+
+.vote-status {
+  min-height: 1.5rem;
+
+  margin: 1.3rem 0 0;
+
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 1.2rem;
+
+  color: #540000;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.vote-status.visible {
+  opacity: 1;
+}
+
+/* =========================================================
+   FINAL SLIDE
+   ========================================================= */
+
+.slide-4 {
+  align-items: center;
+  justify-content: center;
+  padding: 15vh 9vw;
+}
+
+.slide-4:before {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.30),
+      rgba(0, 0, 0, 0.30) 55%,
+      rgba(0, 0, 0, 0.70) 100%
+    ),
+    url("../images/missing.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---------------------------------------------------------
+   CONTENT
+   --------------------------------------------------------- */
+
+.final-content {
+  position: relative;
+  z-index: 3;
+
+  width: min(86%, 520px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16rem;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   MAIN INFO
+   --------------------------------------------------------- */
+
+.final-info {
+  margin: 0;
+
+  font-family: var(--body);
+  font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+  font-weight: 500;
+
+  letter-spacing: 0.28em;
+  line-height: 2;
+
+  color: var(--text);
+
+  text-shadow:
+    0 3px 18px #000;
+}
+
+/* ---------------------------------------------------------
+   DIVIDER
+   --------------------------------------------------------- */
+
+.final-divider {
+  width: 80px;
+  height: 1px;
+
+  margin: 2.2rem 0;
+
+  background: rgba(220, 210, 195, 0.3);
+}
+
+/* ---------------------------------------------------------
+   FINAL MESSAGE
+   --------------------------------------------------------- */
+
+.final-thanks {
+  margin: 0;
+
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: clamp(3rem, 6vw, 3rem);
+
+  line-height: 1.05;
+
+  color: #540000;
+
+  transform: rotate(-3deg);
+
+  text-shadow:
+    0 0 10px rgba(84, 0, 0, 0.35);
+
+  animation: finalThanksPulse 4s ease-in-out infinite;
+}
+
+@keyframes finalThanksPulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: rotate(-3deg) scale(1);
+    text-shadow:
+      0 0 8px rgba(84, 0, 0, 0.25);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotate(-3deg) scale(1.12);
+    text-shadow:
+      0 0 14px rgba(84, 0, 0, 0.55),
+      0 0 25px rgba(84, 0, 0, 0.25);
+  }
+}
+
+/* =========================================================
+   WEICHE SLIDE-ÜBERGÄNGE
+   ========================================================= */
+
+.slide {
+  transition:
+    opacity 0.8s ease,
+    transform 1s ease;
+}
+
+/* Aktive Slide */
+.slide.is-visible {
+  opacity: 1;
+}
+
+/* Slides, die gerade verlassen werden */
+.slide:not(.is-visible) {
+  opacity: 1;
+}
+
+/* Hintergrundbild etwas lebendiger */
+.slide:before {
+  transition:
+    transform 1.4s ease,
+    filter 1s ease;
+}
+
+/* Aktive Slide bekommt einen ganz leichten Zoom */
+.slide.is-visible:before {
+  transform: scale(1.100);
+}
+
+/* Während eine Slide nicht aktiv ist,
+   wird der Hintergrund minimal zurückgenommen */
+.slide:not(.is-visible):before {
+  transform: scale(1);
+  filter: brightness(0.82);
+}
+
+/* Inhalt sanft ein-/ausblenden */
+.content,
+.invitation-paper-content,
+.vote-content,
+.final-content {
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s ease;
+}
