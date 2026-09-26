@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#080707" />
+    <title>Halloween 2026</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/geist.png" href="images/geist.png">
+  </head>
+  <body>
+    <main class="story">
+      <section class="slide welcome">
+        <div class="grain"></div>
+        <div class="content">
+          <p class="eyebrow">CASA DE GEISTHARDT</p>
+          <p class="date">31.10.2026</p>
+          <h1><span class="horror-title">HALLOWEEN</span></h1>
+          <button class="action" data-next>BETRETEN <b>↓</b></button>
+        </div>
+      </section>
+      <section class="slide invitation-slide">
+        <div class="grain"></div>
+        <div class="invitation-paper-content">
+          <div class="invitation-item">
+            <h2>ORT:</h2>
+            <h2>Casa de Geisthardt</h2>
+          </div>
+          <div class="invitation-item">
+            <h2>EINLASS:</h2>
+            <h2>ab 18:00 Uhr</h2>
+          </div>
+          <div class="costume-notice">KOSTÜMPFLICHT !!!</div>
+          <div class="carneval-warning">
+            <span>THIS AIN'T FUCKING</span>
+            <span>CARNIVAL</span>
+          </div>
+          <div class="weiter">
+          <button class="action" data-next>WEITER <b>↓</b></button>
+          </div>
+        </div>
+      </section>
+      <section class="slide slide-3">
+        <div class="grain"></div>
+        <div class="vote-content">
+          <div class="name-field">
+            <input
+              type="text"
+              id="guest-name"
+              name="guest-name"
+              autocomplete="name"
+              placeholder="Name eingeben..."
+              maxlength="40"
+            />
+          </div>
+
+          <div class="vote-options">
+            <button type="button" class="vote-button" data-vote="yes" disabled>
+              JA, ICH KOMME
+            </button>
+
+            <button type="button" class="vote-button" data-vote="no" disabled>
+              LEIDER NICHT
+            </button>
+          </div>
+          <p class="vote-status" aria-live="polite"></p>
+          <button class="action" data-next>WEITER <b>↓</b></button>
+        </div>
+      </section>
+      <section class="slide slide-4">
+        <div class="grain"></div>
+        <div class="final-content">
+
+          <p class="final-info">
+            SOLLTEST DU DEINE<br />
+            ZUSAGE SPÄTER ÄNDERN,<br />
+            GIB UNS BITTE KURZ BESCHEID
+          </p>
+
+          <div class="final-divider"></div>
+
+          <p class="final-thanks">
+            WIR FREUEN UNS<br />
+            AUF DICH
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="counter">
+      <span id="current">01</span><i></i><span>04</span>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
